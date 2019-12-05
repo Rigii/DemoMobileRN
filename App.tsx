@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import MapTest from './components/mapTest'
+import MapTest from './components/map/mapTest'
 import {
   SafeAreaView,
   StyleSheet,
