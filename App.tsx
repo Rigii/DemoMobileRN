@@ -10,6 +10,7 @@
 
 import React from 'react';
 import MapTest from './components/map/mapTest'
+//import PlayerTest from './components/player/player'
 import {
   SafeAreaView,
   StyleSheet,
@@ -33,6 +34,7 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <MapTest/>
+      {/*<PlayerTest/>*/}
     </>
   );
 };

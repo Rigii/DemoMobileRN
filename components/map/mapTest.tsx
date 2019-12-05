@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import MapView, { Region } from 'react-native-maps'
 import Geolocation, { GeolocationResponse } from '@react-native-community/geolocation';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { MapTestType } from './mapInterface'
+/*import { MapTestType } from './mapInterface'
 
-/*
 interface IState extends Region {
     [index: string]: any
 }
@@ -42,7 +41,6 @@ zoomOut = () => {
 }
 
 render(){
-    console.log(this.state.latitudeDelta)
         return (   
             <View style={styles.container}>   
             <MapView      
@@ -58,8 +56,8 @@ render(){
         enableZoomControl={true}
         zoomTapEnabled={true}/> 
         <View style={styles.buttonsCont}>
-        <TouchableOpacity style={styles.buttons}><Text style={{alignSelf: 'center', fontSize: 14}} onPress={this.zoomIn}> + </Text></TouchableOpacity>
-        <TouchableOpacity style={styles.buttons}><Text style={{alignSelf: 'center', fontSize: 14}} onPress={this.zoomOut}> - </Text></TouchableOpacity>
+        <TouchableOpacity style={styles.buttons} onPress={this.zoomIn}><Text style={{alignSelf: 'center', fontSize: 14}}> + </Text></TouchableOpacity>
+        <TouchableOpacity style={styles.buttons} onPress={this.zoomOut}><Text style={{alignSelf: 'center', fontSize: 14}}> - </Text></TouchableOpacity>
         </View>
         </View>
         );
