@@ -9,6 +9,7 @@
  */
 
 import React from 'react';
+import HomeScreen from './components/home_screen/home_screen'
 import MapTest from './components/map/mapTest'
 //import PlayerTest from './components/player/player'
 import {
@@ -28,14 +29,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import AppNavigator from './components/home_screen/home_screen';
+
+//const AppContainer = createAppContainer(AppNavigator);
+
 const App = () => {
-  const usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <MapTest/>
-      {/*<PlayerTest/>*/}
-    </>
+    <AppNavigator />
   );
 };
 
