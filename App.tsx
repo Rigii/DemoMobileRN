@@ -22,9 +22,10 @@ import MyDrawerNavigator from './components/drawer_menu/draver_menu'
 
 const App = () => {
   return (
-    <MyDrawerNavigator />
+    <AppNavigator />
   );
 };
+
 
 const styles = StyleSheet.create({
   scrollView: {

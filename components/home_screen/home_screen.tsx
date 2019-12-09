@@ -2,7 +2,23 @@ import React from 'react';
 import { Button, Platform, Image, View, Text, TouchableOpacity } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import  MyDrawerNavigator  from '../drawer_menu/draver_menu'
+// import { createDrawerNavigator } from 'react-navigation-drawer';
+
+let butColor = Platform.OS === 'ios' ? '#fff' : null;
+
+const navigationOptionsHeader = ({ navigation }) => {
+  return {
+    headerLeft: (
+      <TouchableOpacity
+        style={{ backgroundColor: 'yellow', padding: 15 }}
+        onPress={() => navigation.toggleDrawer()}
+      >
+        <Text style={{ color: 'blue' }}>MENU</Text>
+      </TouchableOpacity>
+    )
+  };
+};
 
 class HomeScreen extends React.Component {
 
@@ -10,13 +26,12 @@ class HomeScreen extends React.Component {
     count: 0,
   };
 
-  static navigationOptions = ({ navigation }) => {
-    let butColor = Platform.OS === 'ios' ? '#fff' : null;
+  static navigationOptions = () => {
     return {
       headerTitle: () => (
         <TouchableOpacity style={{ padding: 6, backgroundColor: butColor }}>
-        <Text>Login</Text>
-      </TouchableOpacity>
+          <Text>Login</Text>
+        </TouchableOpacity>
       ),
       headerRight: () => (
         <TouchableOpacity style={{ padding: 6, backgroundColor: butColor }}>
@@ -52,62 +67,14 @@ class HomeScreen extends React.Component {
   }
 }
 
-
-
-
-class DetailsScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    let title = navigation.getParam('otherParam', '').name;
-    return {
-      title: title,
-      headerStyle: {
-        backgroundColor: 'green',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }
-  };
-
-  render() {
-    const { navigation } = this.props;
-    let otherParam = navigation.getParam('otherParam', {});
-    let name = JSON.stringify(otherParam.name) || ' ';
-    let lastName = JSON.stringify(otherParam.lastName) || ' ';
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-        <Text>itemId: {JSON.stringify(navigation.getParam('itemId', 'NO-ID'))}</Text>
-        <Text> Name: {name} </Text>
-        <Text> Lastname: {lastName} </Text>
-
-        <TouchableOpacity
-          style={{margin: 3, padding: 6, backgroundColor: '#6699cc' }}
-          onPress={() => {
-            this.props.navigation.navigate('Details', {
-              itemId: Math.floor(Math.random()) * 100,
-              otherParam: { name: 'Vasia', lastName: 'Bobrov' },
-            });
-          }}>
-          <Text>"Go to Details... again"</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{margin: 3, padding: 6, backgroundColor: '#6699cc' }}
-          onPress={() => this.props.navigation.navigate('Home')}
-          >
-          <Text>"Go to Home"</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
-
-
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Details: DetailsScreen,
+    Details: {
+      screen: MyDrawerNavigator,
+      navigationOptions: navigationOptionsHeader
+
+    },
   },
   {
     initialRouteName: 'Home',
@@ -125,3 +92,23 @@ const AppNavigator = createStackNavigator(
 
 export default createAppContainer(AppNavigator);
 
+// class DraverModules extends React.Component {
+//   static navigationOptions = (params: any) => {
+//     return {
+//       headerLeft: () => {
+//         const onPress = () => params.navigation.toggleDrawer();
+//         return (
+//         <TouchableOpacity style={{ backgroundColor: 'yellow', padding: 15 }} onPress={onPress}>
+//           <Text>TOGGLE DRAWER</Text>
+//           </TouchableOpacity>)
+//       }
+//     }
+//   }
+  
+//   static router = MyDrawerNavigator.router;
+
+//   render() {
+//     const { navigation } = this.props;
+//     return <MyDrawerNavigator navigation={navigation} />;
+//   }
+// }
