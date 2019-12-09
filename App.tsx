@@ -9,33 +9,20 @@
  */
 
 import React from 'react';
+import { createAppContainer } from 'react-navigation';
 import HomeScreen from './components/home_screen/home_screen'
 import MapTest from './components/map/mapTest'
-//import PlayerTest from './components/player/player'
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import AppNavigator from './components/home_screen/home_screen';
-
+import 'react-native-gesture-handler'
+import { StyleSheet } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import AppNavigator from './components/home_screen/home_screen'
+import MyDrawerNavigator from './components/drawer_menu/draver_menu'
 //const AppContainer = createAppContainer(AppNavigator);
+//import PlayerTest from './components/player/player'
 
 const App = () => {
   return (
-    <AppNavigator />
+    <MyDrawerNavigator />
   );
 };
 

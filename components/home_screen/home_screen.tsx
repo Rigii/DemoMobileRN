@@ -2,17 +2,7 @@ import React from 'react';
 import { Button, Platform, Image, View, Text, TouchableOpacity } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
-class LogoTitle extends React.Component {
-  render() {
-    let butColor = Platform.OS === 'ios' ? '#fff' : null;
-    return (
-      <TouchableOpacity style={{ padding: 6, backgroundColor: butColor }}>
-        <Text>Login</Text>
-      </TouchableOpacity>
-    );
-  }
-}
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 class HomeScreen extends React.Component {
 
@@ -23,7 +13,11 @@ class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     let butColor = Platform.OS === 'ios' ? '#fff' : null;
     return {
-      headerTitle: () => <LogoTitle />,
+      headerTitle: () => (
+        <TouchableOpacity style={{ padding: 6, backgroundColor: butColor }}>
+        <Text>Login</Text>
+      </TouchableOpacity>
+      ),
       headerRight: () => (
         <TouchableOpacity style={{ padding: 6, backgroundColor: butColor }}>
           <Text>+1</Text>
@@ -57,6 +51,9 @@ class HomeScreen extends React.Component {
     );
   }
 }
+
+
+
 
 class DetailsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
