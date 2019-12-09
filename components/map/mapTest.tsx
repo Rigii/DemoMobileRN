@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 import MapView, { Region } from 'react-native-maps'
 import Geolocation, { GeolocationResponse } from '@react-native-community/geolocation';
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
-/*import { MapTestType } from './mapInterface'
-
-interface IState extends Region {
-    [index: string]: any
-}
-*/
 
 class MapTest extends Component<any, Region> { 
     constructor(props: any){

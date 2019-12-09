@@ -73,7 +73,6 @@ const AppNavigator = createStackNavigator(
     Details: {
       screen: MyDrawerNavigator,
       navigationOptions: navigationOptionsHeader
-
     },
   },
   {
