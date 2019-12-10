@@ -99,7 +99,9 @@ class PlayerTest extends Component<any, PlayerTestType> implements IPlayerTest {
                     style={styles.mediaPlayer}
                     volume={10}
                 />
-                <TouchableOpacity style={styles.buttons} onPress={() => this.onPaused(null)}><Text style={{ flex: 1 }}>{this.state.paused ? 'Play' : 'Stop'}</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.buttons} onPress={() => this.onPaused(null)}><Text style={styles.buttonsContent}>
+                    {this.state.paused ? 'Play' : 'Stop'}
+                    </Text></TouchableOpacity>
 
                 {/* <MediaControls
                     duration={this.state.duration}
@@ -137,13 +139,15 @@ const styles = StyleSheet.create({
         right: 0,
         backgroundColor: 'black',
     },
-    buttonsCont: {
+    buttonsContent: {
         position: 'absolute',
-        justifyContent: 'center',
         flexDirection: 'row',
-        bottom: 5
+        bottom: 5,
+        fontSize: 20
+        
     },
     buttons: {
+        position: 'relative',
         flex: 1,
         backgroundColor: '#fff',
         borderRadius: 5,
@@ -151,7 +155,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         alignSelf: 'center',
         margin: 20,
-        opacity: 0.5
+        opacity: 0.5,
+        justifyContent: "center",
+        alignItems: "center"
     }
 });
 export default PlayerTest;
