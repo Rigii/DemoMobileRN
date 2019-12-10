@@ -4,15 +4,13 @@ import Geolocation, { GeolocationResponse } from '@react-native-community/geoloc
 import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 class MapTest extends Component<any, Region> { 
-    constructor(props: any){
-        super(props);
-        this.state = {
+    
+    public state = {
             latitude: 0,          
             longitude: 0,
             latitudeDelta: 0.0922,          
             longitudeDelta: 0.0421 
         }
-    }
     
 componentDidMount(){
     this.getCurrentLocation()

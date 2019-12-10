@@ -1,31 +1,27 @@
 import React from 'react';
-import { Button, Platform, Image, View, Text, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
-import { StyleSheet } from 'react-native';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import MapTest from '../map/mapTest'
 import ExampleCamera from '../camera/example_camera'
+import PlayerTest from '../player/player'
 
 
-class MyHomeScreen extends React.Component {
-
-  render() {
-    return (
-      <View style={{flex: 1}}>
-        <MapTest/>
-        {/* <Button
-        onPress={() => this.props.navigation.navigate('Notifications')}
-        title="Go to notifications"
-        color="red"
-      /> */}
-      </View>
-    );
-  }
+let MyMaps = () => {
+  return (
+          <View style={{flex: 1}}>
+            <MapTest/>
+            {/* <Button
+            onPress={() => this.props.navigation.navigate('Notifications')}
+            title="Go to notifications"
+            color="red"
+          /> */}
+          </View>
+        );
 }
 
-class MyNotificationsScreen extends React.Component {
+let MyCamera = () => {
 
-  render() {
     return (
       <View style={{flex: 1}}>
         <ExampleCamera/>
@@ -36,16 +32,30 @@ class MyNotificationsScreen extends React.Component {
       /> */}
       </View>
     );
+}
+
+class MyPlayer extends React.Component {
+
+  render() {
+    return (
+      <View style={{flex: 1}}>
+        <PlayerTest/>
+      </View>
+    );
   }
 }
 
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {
-    screen: MyHomeScreen,
+    screen: MyMaps,
   },
   Notifications: {
-    screen: MyNotificationsScreen,
-  }},
+    screen: MyCamera,
+  },
+  Player: {
+    screen: MyPlayer,
+  }
+},
   {
     initialRouteName: 'Home'
   }
