@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button, Platform, Image, View, Text, TouchableOpacity } from 'react-native';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, NavigationInjectedProps, NavigationScreenProp } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import  MyDrawerNavigator  from '../drawer_menu/draver_menu'
 // import { createDrawerNavigator } from 'react-navigation-drawer';
+import { ROUTES } from '../../constants/routes'
 
-let butColor = Platform.OS === 'ios' ? '#fff' : null;
-
-const navigationOptionsHeader = ({ navigation }) => {
+const navigationOptionsHeader = ({ navigation }: { navigation: NavigationScreenProp<any>}) => {
   return {
     headerLeft: (
       <TouchableOpacity
@@ -20,7 +19,7 @@ const navigationOptionsHeader = ({ navigation }) => {
   };
 };
 
-class HomeScreen extends React.Component {
+class HomeScreen extends React.Component<NavigationInjectedProps> {
 
   state = {
     count: 0,
@@ -29,12 +28,12 @@ class HomeScreen extends React.Component {
   static navigationOptions = () => {
     return {
       headerTitle: () => (
-        <TouchableOpacity style={{ padding: 6, backgroundColor: butColor }}>
+        <TouchableOpacity style={{ padding: 6, backgroundColor: '#fff' }}>
           <Text>Login</Text>
         </TouchableOpacity>
       ),
       headerRight: () => (
-        <TouchableOpacity style={{ padding: 6, backgroundColor: butColor }}>
+        <TouchableOpacity style={{ padding: 6, backgroundColor: '#fff' }}>
           <Text>+1</Text>
         </TouchableOpacity>
       ),
@@ -56,7 +55,7 @@ class HomeScreen extends React.Component {
         <Button
           title="Go to Details"
           onPress={() => {
-            this.props.navigation.navigate('Details', {
+            this.props.navigation.navigate(ROUTES.Drawer, {
               itemId: 86,
               otherParam: { name: 'Vasia', lastName: 'Bobrov' },
             });
@@ -69,8 +68,8 @@ class HomeScreen extends React.Component {
 
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
-    Details: {
+    [ROUTES.Home]: HomeScreen,
+    [ROUTES.Drawer]: {
       screen: MyDrawerNavigator,
       navigationOptions: navigationOptionsHeader
     },
