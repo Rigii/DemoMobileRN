@@ -4,9 +4,9 @@ import { createAppContainer, NavigationScreenProp } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import  MyDrawerNavigator  from '../../components/drawer_menu/draver_menu'
 import { HomeScreen} from './home';
-import { ROUTES } from '../../constants/routes'
+import { ROUTES } from '../../constants/routes' //импорт констант с названиями роутов
 
-const navigationOptionsHeader = ({ navigation }: { navigation: NavigationScreenProp<any>}) => {
+const navigationOptionsHeader = ({ navigation }: { navigation: NavigationScreenProp<any>}) => { //опции навигации
   return {
     headerLeft: (
       <TouchableOpacity
