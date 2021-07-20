@@ -15,7 +15,7 @@
     "@react-navigation/native-container": "0.0.0-alpha.12",
     "@types/react-native-video": "^3.1.5",
     "react": "16.9.0",
-    "react-native": "0.61.4",
+    "react-native": "0.62.3",
     "react-native-camera": "^3.13.1",
     "react-native-gesture-handler": "^1.5.2",
     "react-native-maps": "^0.26.1",
